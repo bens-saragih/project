@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block judul %}
+	{{judul}}
+{% endblock judul %}
+
+{% block heading %}
+	<h3>{{heading}}</h3>
+{% endblock heading %}
+
+{% block content %}
+	<div style="text-align: center;">
+	<p>Selamat datang di halaman about, Project ini merupakan project CRUD di Django yang saya buat ,semoga kedepan nya saya bisa membuat yang lebih baik dari ini, terima kasih.</p>
+</div>
+<div style="text-align: right;">
+	<p>Salam Penulis</p>
+	<p>Bento Sarindo S.M</p>
+	<p>Senin,14 Oktober 2019,17.47 WIB</p>
+</div>
+	<div style="text-align: center;">
+		<a class="btn btn-success" href="{% url 'baca:index' %}">Ayo Baca...</a>
+		<a class="btn btn-warning" href="{% url 'edit:index' %}">Berkreasi...</a>
+		<a class="btn btn-primary" href="{% url 'index' %}">Home</a>
+		</div>
+{% endblock content %}

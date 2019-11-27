@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block judul %}
+	{{judul}}
+{% endblock judul %}
+
+{% block heading %}
+	<h2>{{heading}}</h2>
+{% endblock heading %}
+
+{% block content %}
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'baca:index' %}">Semua Artikel</a>
+			</li>
+			{% for data in Categories %}
+			<li>
+				<li class="nav-item">
+					<a class="nav-link" href="/baca/category/{{data.category}}">{{data.category}}</a>
+				</li>
+			</li>
+			{% endfor %}
+		</ul>
+		<br>
+		<br>
+		{% for post in semua_artikel %}
+			<a href="/baca/post/{{post.slug}}">
+			<h3>{{post.judul}}</h3>
+			</a>
+			<p>{{post.penulis}}</p>
+			<p>{{post.body|truncatechars:100}}</p>
+		{% endfor %}
+		<div style="text-align: center;">
+		<a class="btn btn-success" href="{% url 'baca:index' %}">Baca Artikel lain...</a>
+		<a class="btn btn-warning" href="{% url 'edit:index' %}">Berkreasi...</a>
+		<a class="btn btn-primary" href="{% url 'index' %}">Home</a>
+		</div>
+{% endblock content %}s

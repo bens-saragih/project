@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block judul %}
+    {{judul}}
+{% endblock judul %}
+
+{% block heading %}
+   <h3 style="text-align: center;">{{heading}}</h3>
+{% endblock heading %}
+  <br>
+{% block content %}
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Judul</th>
+          <th scope="col">Isi</th>
+          <th scope="col">Category</th>
+          <th scope="col">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in semua_artikel %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{post.judul}}</td>
+          <td>{{post.body|truncatechars:30}}</td>
+          <td>{{post.category}}</td>
+          <td>{{post.penulis}}</td>
+          <td><a class="btn btn-danger" href="{% url 'edit:delete' post.id %}">Hapus</a></td>
+          <td><a class="btn btn-warning" href="{% url 'edit:update' post.id %}">Update</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'edit:create' %}">Tambah</a>
+    <div style="text-align: center;">
+    <a class="btn btn-success" href="{% url 'index' %}">Home</a>
+<a class="btn btn-info" href="{% url 'baca:index' %}">Baca Artikel</a>
+{% endblock content %}

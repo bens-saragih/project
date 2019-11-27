@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block judul %}
+	{{judul}}
+{% endblock judul %}
+
+{% block heading %}
+	<h4>{{heading}}</h4>
+{% endblock heading %}
+
+{% block content %}
+
+		<h5>{{semua_artikel.judul}}</h5>
+		<p>{{semua_artikel.penulis}}</p>
+		<p>{{semua_artikel.ditulis}} | {{semua_artikel.category}}</p>
+		<p>{{semua_artikel.body}}</p>
+<a class="btn btn-primary" href="{% url 'index' %}">Home</a>
+<a class="btn btn-success" href="{% url 'baca:index' %}">Baca Artikel lain</a>
+{% endblock content %}

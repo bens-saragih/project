@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block judul %}
+	{{judul}}
+{% endblock judul %}
+
+{% block heading %}
+	<h3 style="text-align: center;">{{heading}}</h3>
+{% endblock heading%}
+
+{% block content %}
+	<form method='POST'>
+		{% csrf_token %}
+		<table>
+			{{form_artikel.as_table}}
+		</table>
+		<button class="btn btn-info" type="submit">kirim</button>
+		<a class="btn btn-secondary" href="{% url 'edit:index' %}">Batal</a>
+	</form>
+
+{% endblock content %}

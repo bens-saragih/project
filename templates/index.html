@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block judul %}
+	{{judul}}
+{% endblock judul %}
+
+{% block heading %}
+	<h2 style="text-align: center; font-family: italic;">{{heading}}</h2><br>
+{% endblock heading %}
+
+{% block content %}
+	<div style="text-align: center;">
+		<a class="btn btn-success" href="{% url 'baca:index' %}">Ayo Baca...</a>
+		<a class="btn btn-warning" href="{% url 'edit:index' %}">Berkreasi...</a>
+		<a class="btn btn-primary" href="{% url 'about:index' %}">About</a>
+	</div>
+{% endblock content %}
